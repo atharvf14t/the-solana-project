@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Solana · Brickell Bay Residences</title>
+<meta name="description" content="Explore The Solana floor by floor. Hover the tower, choose a floor, and step inside every residence.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 fill=%27%23070b14%27/%3E%3Ctext x=%2716%27 y=%2723%27 font-size=%2720%27 text-anchor=%27middle%27 fill=%27%23f4efe6%27 font-family=%27Georgia%27%3ES%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app" data-view="tower">
+
+  <!-- TOWER -->
+  <section class="layer" id="towerLayer">
+    <div class="plane" id="towerPlane">
+      <img id="towerImg" src="assets/tower.jpg" srcset="assets/tower_sm.jpg 1920w, assets/tower.jpg 3840w" sizes="(max-width: 900px) 1920px, 3840px" alt="The Solana tower at dusk on Biscayne Bay" draggable="false">
+      <svg id="bands" viewBox="0 0 5504 3072" preserveAspectRatio="none" aria-label="Floors"></svg>
+    </div>
+  </section>
+
+  <!-- UNIT (dollhouse) -->
+  <section class="layer hidden" id="unitLayer">
+    <div class="plane" id="unitPlane">
+      <img id="unitImg" alt="" draggable="false">
+      <div id="dots"></div>
+    </div>
+  </section>
+
+  <!-- ROOM -->
+  <section class="layer hidden" id="roomLayer">
+    <div class="plane" id="roomPlane"><img id="roomImg" alt="" draggable="false"></div>
+  </section>
+
+  <video id="clip" class="layer hidden" muted playsinline preload="auto"></video>
+  <div id="flash" class="layer"></div>
+
+  <!-- CHROME -->
+  <header class="top">
+    <div class="brand"><span class="mark">S</span><span class="word">THE SOLANA</span><span class="sub">Brickell Bay · Miami</span></div>
+    <nav class="nav"><span>Residences</span><span>Penthouses</span><span>Amenities</span><a class="cta" href="#" data-action="inquire">Private Tour</a></nav>
+  </header>
+
+  <div id="floorTag" class="floor-tag" aria-live="polite">
+    <div class="ft-line"></div>
+    <div class="ft-card">
+      <div class="ft-num"><span class="ft-label">Floor</span><span id="ftNum">22</span></div>
+      <div class="ft-meta">
+        <div id="ftType" class="ft-type">Residence A</div>
+        <div id="ftSpec" class="ft-spec">2 Bed · 2 Bath · 1,450 SF</div>
+        <div id="ftStatus" class="pill">Available</div>
+      </div>
+      <button id="ftEnter" class="ft-enter" type="button">Enter floor</button>
+    </div>
+  </div>
+
+  <div id="hint" class="hint"><span class="hint-dot"></span><span id="hintText">Hover a floor to explore</span></div>
+
+  <aside id="unitPanel" class="panel" aria-hidden="true">
+    <div class="p-eyebrow" id="pEyebrow">Floor 22</div>
+    <h1 class="p-title" id="pTitle">Residence A</h1>
+    <div class="p-specs" id="pSpecs"></div>
+    <div class="p-price"><span>From</span><strong id="pPrice">$1.69M</strong></div>
+    <p class="p-copy" id="pCopy"></p>
+    <div class="p-rooms" id="pRooms"></div>
+    <div class="p-actions">
+      <button class="btn ghost" type="button" data-action="back">Back to tower</button>
+      <button class="btn solid" type="button" data-action="inquire">Request floor plan</button>
+    </div>
+  </aside>
+
+  <div id="roomBar" class="room-bar" aria-hidden="true">
+    <button class="btn ghost" type="button" data-action="back">Back to floor plan</button>
+    <div class="rb-title"><span id="rbFloor">Floor 22 · Residence A</span><strong id="rbRoom">Living &amp; Kitchen</strong></div>
+    <div class="rb-chips" id="rbChips"></div>
+  </div>
+
+  <div id="cursor" aria-hidden="true"></div>
+  <div class="disclaimer">Concept demo by Lynam Up Media. The Solana is fictional; all imagery is AI-generated.</div>
+</div>
+<script src="clips.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
